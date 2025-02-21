@@ -1,0 +1,1 @@
+The note.py file is only for follow the instructions given by the teacher
