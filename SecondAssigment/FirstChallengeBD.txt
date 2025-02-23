@@ -1,0 +1,2 @@
+List of numbers: [12, 30, 21] 
+List of Sum Digits: [3, 3, 3] 
