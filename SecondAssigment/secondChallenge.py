@@ -1,4 +1,4 @@
-class User:
+ User:
     def insert_data(self):
         self.profession = input("Enter your profession: ")
         self.name = input("Enter your name: ")
