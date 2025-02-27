@@ -1,0 +1,9 @@
+Added User -> Name: Fabian, Age: 21, Program: Doctor
+Added User -> Name: Breyner, Age: 20, Program: Engineering
+Search by: age, Value: 21
+Age: 21, Count: 1, Occurrences: odd
+------------------------------
+Added User -> Name: Fabian, Age: 20, Program: doctor
+Search by: age, Value: 21
+Age: 21, Count: 0, Occurrences: even
+------------------------------
