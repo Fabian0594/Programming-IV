@@ -38,7 +38,12 @@ class employer:
             pension_age = 62
             time_to_retire = pension_age - self.age
             if time_to_retire < 0:
-                print("You have complete the time to retire, begin to enjoy the rest of your live!!") 
+                print("You have complete the time to retire, begin to enjoy the rest of your live!!")
+            else:
+                print(f"You need complete {time_to_retire} years to retire")
+                
+    def pension_health_cost():
+        
                 
     
     
