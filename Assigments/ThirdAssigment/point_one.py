@@ -56,14 +56,61 @@ class smartphone:
             
 class subject:
     
-    def __init__(self, name, ):
+    def __init__(self, name, code, credits, professor):
+        self.name = name
+        self.code = code
+        self.credits = credits
+        self.professor = professor
     
+    def get_details(self):
+        return f"Subject: {self.name}, Code: {self.code}, Credits: {self.credits}, Professor: {self.professor}"
+    
+    def is_passed(self, note):
+        return note >= 60
+    
+        
+class Army:
+    
+    def __init__(self, name, country, soldiers, budget):
+        self.name = name
+        self.country = country
+        self.soldiers = soldiers
+        self.budget = budget
+    
+    def get_info(self):
+        return f"Army: {self.name}, Country: {self.country}, Soldiers: {self.soldiers}, Budget: {self.budget}"
+    
+    def is_large(self):
+        return self.soldiers > 100000 
 
+class Chair:
+    
+    def __init__(self, material, color, height, price):
+        self.material = material
+        self.color = color
+        self.height = height
+        self.price = price
+    
+    def get_info(self):
+        return f"Chair: Material: {self.material}, Color: {self.color}, Height: {self.height} cm, Price: ${self.price}"
+    
+    def is_expensive(self):
+        return self.price > 100
 
-        
-        
-        
-        
+class Headphones:
+    
+    def __init__(self, brand, model, wireless, price):
+        self.brand = brand
+        self.model = model
+        self.wireless = wireless
+        self.price = price
+    
+    def get_info(self):
+        return f"Headphones: Brand: {self.brand}, Model: {self.model}, Wireless: {self.wireless}, Price: ${self.price}"
+    
+    def is_wireless(self):
+        return self.wireless
+
         
         
         
