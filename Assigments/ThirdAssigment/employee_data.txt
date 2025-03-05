@@ -1,0 +1,27 @@
+Gender: male
+Salary per month: 72000.00
+Age: 21
+Years working: 22
+Pension deduction per month: 2880.00
+Health deduction per month: 2880.00
+Yearly pension contribution: 34560.00
+Years left for retirement: 41
+========================================
+Gender: 
+Salary per month: 108000.00
+Age: 0
+Years working: 2025
+Pension deduction per month: 4320.00
+Health deduction per month: 4320.00
+Yearly pension contribution: 51840.00
+Years left for retirement: 62
+========================================
+Gender: male
+Salary per month: 2016000.00
+Age: 21
+Years working: 22
+Pension deduction per month: 80640.00
+Health deduction per month: 80640.00
+Yearly pension contribution: 967680.00
+Years left for retirement: 41
+========================================
