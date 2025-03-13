@@ -210,6 +210,7 @@ if __name__ == "__main__":
 # - I added a check to see if the seniority is greater than 0 before calculating the salary.
 
 # Recommendations:
+# - Use a README file instead of comments to provide instructions on how to run the program.
 # - Save the file path in a configuration file or environment variable to make it easier to change in the future.
 # - Add more error handling to handle other types of exceptions that may occur.
 # - Add more input validation to ensure that the user enters valid data.
