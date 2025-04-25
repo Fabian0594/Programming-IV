@@ -1,6 +1,7 @@
 # gestor_hotel.py
 from habitacion import Habitacion, HabitacionSimple, HabitacionDoble, Suite, ServicioAdicional, EstadoHabitacion, HabitacionConServicios
 from datetime import datetime, timedelta
+import json
 
 class Reserva:
     """Clase para representar una reserva"""
@@ -205,3 +206,76 @@ class GestorHotel:
         self.agregar_servicio_a_habitacion(302, "Acceso al Spa")
         self.agregar_servicio_a_habitacion(302, "Minibar")
         self.agregar_servicio_a_habitacion(302, "Servicio a la habitación")
+    
+    def guardar_datos(self, archivo="datos_hotel.json"):
+        """Guarda las habitaciones y reservas en un archivo JSON"""
+        datos = {
+            "habitaciones": [
+                {
+                    "numero": habitacion.numero,
+                    "precio": habitacion.precio,
+                    "estado": habitacion.estado.value,
+                    "tipo": habitacion.__class__.__name__,
+                    "servicios": [
+                        {"nombre": servicio.nombre, "precio": servicio.precio}
+                        for servicio in getattr(habitacion, "_servicios", [])
+                    ] if isinstance(habitacion, HabitacionConServicios) else []
+                }
+                for habitacion in self._habitaciones.values()
+            ],
+            "reservas": [
+                {
+                    "codigo": reserva.codigo,
+                    "habitacion": reserva.habitacion.numero,
+                    "huesped": reserva.huesped,
+                    "fecha_entrada": reserva.fecha_entrada.strftime("%d/%m/%Y"),
+                    "fecha_salida": reserva.fecha_salida.strftime("%d/%m/%Y"),
+                    "fecha_reserva": reserva.fecha_reserva.strftime("%d/%m/%Y %H:%M:%S")
+                }
+                for reserva in self._reservas
+            ]
+        }
+        with open(archivo, "w") as f:
+            json.dump(datos, f, indent=4)
+        print(f"Datos guardados en {archivo}.")
+
+    def cargar_datos(self, archivo="datos_hotel.json"):
+        """Carga las habitaciones y reservas desde un archivo JSON"""
+        try:
+            with open(archivo, "r") as f:
+                datos = json.load(f)
+            
+            # Cargar habitaciones
+            self._habitaciones = {}
+            for hab in datos["habitaciones"]:
+                if hab["tipo"] == "HabitacionSimple":
+                    habitacion = HabitacionSimple(hab["numero"], hab["precio"])
+                elif hab["tipo"] == "HabitacionDoble":
+                    habitacion = HabitacionDoble(hab["numero"], hab["precio"])
+                elif hab["tipo"] == "Suite":
+                    habitacion = Suite(hab["numero"], hab["precio"])
+                else:
+                    continue
+                
+                habitacion.estado = EstadoHabitacion(hab["estado"])
+                for servicio in hab.get("servicios", []):
+                    habitacion.agregar_servicio(ServicioAdicional(servicio["nombre"], servicio["precio"]))
+                self._habitaciones[habitacion.numero] = habitacion
+            
+            # Cargar reservas
+            self._reservas = []
+            for res in datos["reservas"]:
+                habitacion = self.obtener_habitacion(res["habitacion"])
+                reserva = Reserva(
+                    habitacion,
+                    res["huesped"],
+                    datetime.strptime(res["fecha_entrada"], "%d/%m/%Y"),
+                    datetime.strptime(res["fecha_salida"], "%d/%m/%Y")
+                )
+                reserva._codigo = res["codigo"]  # Restaurar el código original
+                reserva._fecha_reserva = datetime.strptime(res["fecha_reserva"], "%d/%m/%Y %H:%M:%S")
+                self._reservas.append(reserva)
+            
+            print(f"Datos cargados desde {archivo}.")
+        except FileNotFoundError:
+            print(f"No se encontró el archivo {archivo}. Se iniciará con datos vacíos.")
