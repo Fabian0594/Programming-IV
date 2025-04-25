@@ -1,0 +1,44 @@
+[
+    {
+        "tipo": "Electronico",
+        "nombre": "Smartphone XYZ",
+        "precio": 499.99,
+        "cantidad": 2,
+        "periodo_garantia": 12
+    },
+    {
+        "tipo": "Electronico",
+        "nombre": "Laptop Pro",
+        "precio": 1299.99,
+        "cantidad": 5,
+        "periodo_garantia": 24
+    },
+    {
+        "tipo": "Ropa",
+        "nombre": "Camiseta Algod\u00f3n",
+        "precio": 19.99,
+        "cantidad": 44,
+        "tamano": "M"
+    },
+    {
+        "tipo": "Ropa",
+        "nombre": "Pantal\u00f3n Vaquero",
+        "precio": 39.99,
+        "cantidad": 30,
+        "tamano": "L"
+    },
+    {
+        "tipo": "Alimento",
+        "nombre": "Chocolate Premium",
+        "precio": 5.99,
+        "cantidad": 100,
+        "fecha_caducidad": "2025-12-31"
+    },
+    {
+        "tipo": "Alimento",
+        "nombre": "Caf\u00e9 Gourmet",
+        "precio": 8.99,
+        "cantidad": 40,
+        "fecha_caducidad": "2025-06-30"
+    }
+]
