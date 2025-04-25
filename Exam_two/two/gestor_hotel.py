@@ -11,7 +11,7 @@ class Reserva:
         self._huesped = huesped
         self._fecha_entrada = fecha_entrada
         self._fecha_salida = fecha_salida
-        self._codigo = f"R{datetime.now().strftime('%Y%m%d%H%M%S')}"
+        self._codigo = f"R{datetime.now().strftime('%Y%m%d%M')}"
         self._fecha_reserva = datetime.now()
     
     @property
@@ -156,6 +156,9 @@ class GestorHotel:
         # Agregar la reserva a la lista
         self._reservas.append(reserva)
         
+        # Guardar los datos actualizados en el archivo JSON
+        self.guardar_datos()
+        
         return reserva
     
     def cancelar_reserva(self, codigo_reserva):
@@ -278,4 +281,5 @@ class GestorHotel:
             
             print(f"Datos cargados desde {archivo}.")
         except FileNotFoundError:
-            print(f"No se encontró el archivo {archivo}. Se iniciará con datos vacíos.")
+            print(f"No se encontró el archivo {archivo}. Creando un archivo vacío...")
+            self.guardar_datos(archivo)  # Crear el archivo vacío

@@ -1,0 +1,92 @@
+{
+    "habitaciones": [
+        {
+            "numero": 101,
+            "precio": 80.0,
+            "estado": "reservado",
+            "tipo": "HabitacionSimple",
+            "servicios": []
+        },
+        {
+            "numero": 102,
+            "precio": 80.0,
+            "estado": "disponible",
+            "tipo": "HabitacionSimple",
+            "servicios": []
+        },
+        {
+            "numero": 201,
+            "precio": 120.0,
+            "estado": "disponible",
+            "tipo": "HabitacionDoble",
+            "servicios": [
+                {
+                    "nombre": "Desayuno",
+                    "precio": 15.0
+                }
+            ]
+        },
+        {
+            "numero": 202,
+            "precio": 120.0,
+            "estado": "disponible",
+            "tipo": "HabitacionDoble",
+            "servicios": [
+                {
+                    "nombre": "Minibar",
+                    "precio": 25.0
+                }
+            ]
+        },
+        {
+            "numero": 301,
+            "precio": 200.0,
+            "estado": "disponible",
+            "tipo": "Suite",
+            "servicios": [
+                {
+                    "nombre": "Desayuno",
+                    "precio": 15.0
+                },
+                {
+                    "nombre": "Acceso al Spa",
+                    "precio": 30.0
+                }
+            ]
+        },
+        {
+            "numero": 302,
+            "precio": 250.0,
+            "estado": "disponible",
+            "tipo": "Suite",
+            "servicios": [
+                {
+                    "nombre": "Desayuno",
+                    "precio": 15.0
+                },
+                {
+                    "nombre": "Acceso al Spa",
+                    "precio": 30.0
+                },
+                {
+                    "nombre": "Minibar",
+                    "precio": 25.0
+                },
+                {
+                    "nombre": "Servicio a la habitaci\u00f3n",
+                    "precio": 20.0
+                }
+            ]
+        }
+    ],
+    "reservas": [
+        {
+            "codigo": "R2025042540",
+            "habitacion": 101,
+            "huesped": "Fabian",
+            "fecha_entrada": "26/04/2025",
+            "fecha_salida": "29/04/2025",
+            "fecha_reserva": "25/04/2025 03:40:16"
+        }
+    ]
+}

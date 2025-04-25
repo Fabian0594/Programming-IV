@@ -30,6 +30,9 @@ def main():
     # Crear el gestor del hotel
     hotel = GestorHotel("Hotel Paraíso")
     
+    # Inicializar habitaciones y servicios de ejemplo
+    hotel.inicializar_hotel_ejemplo()
+    
     # Cargar datos desde el archivo JSON
     hotel.cargar_datos()
     
